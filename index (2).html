@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Projekt - Martyshko Mariia 66766</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="green-theme">
+
+    <header>
+        <h1>Martyshko Mariia - Portfolio</h1>
+        <p>Numer indeksu: <strong>66766</strong></p>
+        
+        <nav>
+            <button id="theme-btn">Zmień motyw (Red/Green)</button>
+            <button id="toggle-section-btn">Pokaż/Ukryj sekcję Projekty</button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="about">
+            <h2>O mnie</h2>
+            <p>Studentka pracująca nad projektem z technologii internetowych. Mój indeks to 66766.</p>
+        </section>
+
+        <section id="projects-section">
+            <h2>Moje Projekty</h2>
+            <ul>
+                <li>Projekt 1: Witryna HTML</li>
+                <li>Projekt 2: Stylowanie CSS</li>
+                <li>Projekt 3: Interakcja JS (Zadanie 4)</li>
+            </ul>
+        </section>
+        <section id="contact">
+    <h2>Kontakt (Zadanie 5)</h2>
+    <form id="contact-form">
+        <div>
+            <label for="name">Imię i Nazwisko:</label><br>
+            <input type="text" id="name" placeholder="np. Mariia Martyshko">
+        </div>
+        <div>
+            <label for="email">E-mail:</label><br>
+            <input type="email" id="email" placeholder="66766@student.pl">
+        </div>
+        <div>
+            <label for="message">Wiadomość:</label><br>
+            <textarea id="message"></textarea>
+        </div>
+        <button type="submit">Wyślij wiadomość</button>
+    </form>
+    <p id="error-msg" style="color: red; font-weight: bold;"></p>
+</section>
+        
+    <section id="skills">
+    <h2>Moje Umiejętności (Zadanie 6 - JSON)</h2>
+    <ul id="skills-list">
+        <li>Ładowanie danych...</li>
+    </ul>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2026 Martyshko Mariia (66766)</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
