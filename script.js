@@ -1,3 +1,4 @@
+// Martyshko Mariia 66766
 console.log("66766: Skrypt podłączony poprawnie!");
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -6,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const toggleBtn = document.getElementById('toggle-section-btn');
     const projectsSection = document.getElementById('projects-section');
 
+    // --- ZADANIE 4: Interakcja ---
     if (themeBtn) {
         themeBtn.onclick = () => {
             document.body.classList.toggle('red-theme');
@@ -16,22 +18,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (toggleBtn) {
         toggleBtn.onclick = () => {
-            projectsSection.classList.toggle('hidden');
+            if (projectsSection) {
+                projectsSection.classList.toggle('hidden');
+            }
         };
     }
 
+    // --- ZADANIE 5: Walidacja ---
     const contactForm = document.getElementById('contact-form');
     const errorMsg = document.getElementById('error-msg');
 
     if (contactForm) {
         contactForm.onsubmit = function(event) {
             event.preventDefault();
-            
             const name = document.getElementById('name').value.trim();
             const email = document.getElementById('email').value.trim();
             const message = document.getElementById('message').value.trim();
-
-            console.log("66766: Próba wysłania formy:", { name, email });
 
             if (!name || !email || !message) {
                 errorMsg.textContent = "Błąd: Wypełnij wszystkie pola! (66766)";
@@ -49,25 +51,26 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     }
 
+    // --- ZADANIE 6: JSON (Только это показываешь сейчас) ---
     const skillsList = document.getElementById('skills-list');
-
-    fetch('data.json')
-        .then(response => {
-            if (!response.ok) throw new Error("Błąd ładowania pliku JSON");
-            return response.json();
-        })
-        .then(data => {
-            console.log("66766: Dane z JSON załadowane:", data);
-            skillsList.innerHTML = ""; 
-
-            data.skills.forEach(skill => {
-                const li = document.createElement('li');
-                li.textContent = skill;
-                skillsList.appendChild(li);
+    if (skillsList) {
+        fetch('data.json')
+            .then(response => {
+                if (!response.ok) throw new Error("Błąd ładowania pliku JSON");
+                return response.json();
+            })
+            .then(data => {
+                console.log("66766: Dane z JSON załadowane:", data);
+                skillsList.innerHTML = ""; // Убираем "Ładowanie danych..."
+                data.skills.forEach(skill => {
+                    const li = document.createElement('li');
+                    li.textContent = skill;
+                    skillsList.appendChild(li);
+                });
+            })
+            .catch(err => {
+                console.error("66766 Error:", err);
+                skillsList.innerHTML = "<li>Nie udało się załadować umiejętności.</li>";
             });
-        })
-        .catch(err => {
-            console.error("66766 Error:", err);
-            skillsList.innerHTML = "<li>Nie udało się załadować umiejętności.</li>";
-        });
+    }
 });
